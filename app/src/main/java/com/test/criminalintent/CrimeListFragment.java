@@ -1,6 +1,7 @@
 package com.test.criminalintent;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +46,7 @@ public class CrimeListFragment extends Fragment {
         private TextView mDateTextView;
         private Button mCallPoliceButton;
         private Crime mCrime;
+        private ImageView mSolvedImageView;
 
         public CrimeHolder(View itemView, int typeXml) {
             super(itemView);
@@ -51,7 +54,8 @@ public class CrimeListFragment extends Fragment {
                 itemView.setOnClickListener(this);
                 mTitleTextView = (TextView) itemView.findViewById(R.id.crime_title);
                 mDateTextView = (TextView) itemView.findViewById(R.id.crime_data);
-            } else if (typeXml == VIEW_TYPE_POLICE){
+                mSolvedImageView = (ImageView) itemView.findViewById(R.id.crime_solved);
+            } else if (typeXml == VIEW_TYPE_POLICE) {
                 itemView.setOnClickListener(this);
                 mTitleTextView = (TextView) itemView.findViewById(R.id.crime_title);
                 mDateTextView = (TextView) itemView.findViewById(R.id.crime_data);
@@ -64,6 +68,7 @@ public class CrimeListFragment extends Fragment {
             mCrime = crime;
             mTitleTextView.setText(mCrime.getTitle());
             mDateTextView.setText(mCrime.getDate().toString());
+            mSolvedImageView.setVisibility(crime.isSolved() ? View.VISIBLE : View.GONE);
         }
 
         @Override
@@ -71,7 +76,8 @@ public class CrimeListFragment extends Fragment {
             if (v.getId() == R.id.call_police_button) {
                 Toast.makeText(getActivity(), mCrime.getTitle() + " call police!", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(getActivity(), mCrime.getTitle() + " cliked!", Toast.LENGTH_SHORT).show();
+                Intent intent = CrimeActivity.newIntent(getContext(), mCrime.getId());
+                startActivity(intent);
             }
         }
 
