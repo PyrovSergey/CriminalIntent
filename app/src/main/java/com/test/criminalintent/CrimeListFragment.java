@@ -33,7 +33,7 @@ public class CrimeListFragment extends Fragment {
         return view;
     }
 
-    //
+    // page 232 test
     private void updateUI() {
         CrimeLab crimeLab = CrimeLab.get(getActivity());
         List<Crime> crimes = crimeLab.getCrimes();
