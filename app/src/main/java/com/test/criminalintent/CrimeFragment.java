@@ -1,5 +1,6 @@
 package com.test.criminalintent;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.util.UUID;
@@ -37,6 +39,12 @@ public class CrimeFragment extends Fragment {
         super.onCreate(savedInstanceState);
         UUID crimeId = (UUID) getArguments().getSerializable(ARG_CRIME_ID);
         mCrime = CrimeLab.get(getActivity()).getCrime(crimeId);
+    }
+
+    @Override
+    public void onStop() {
+        CrimeLab.setChangePosition(CrimeLab.get(getContext()).getCrimes().indexOf(mCrime)); // тут мы получаем индекс объекта в списке
+        super.onStop();
     }
 
     @Nullable
@@ -68,6 +76,7 @@ public class CrimeFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 mCrime.setTitle(charSequence.toString());
+                // Toast.makeText(getActivity(), "Changed", Toast.LENGTH_SHORT).show();
             }
 
             @Override
