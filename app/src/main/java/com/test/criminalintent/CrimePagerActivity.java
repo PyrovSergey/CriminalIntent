@@ -19,6 +19,12 @@ public class CrimePagerActivity extends AppCompatActivity {
 
     private static final String EXTRA_CRIME_ID = "crime_id";
 
+    public static Intent newIntent(Context context, UUID crime_id) {
+        Intent intent = new Intent(context, CrimePagerActivity.class);
+        intent.putExtra(EXTRA_CRIME_ID, crime_id);
+        return intent;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,9 +56,4 @@ public class CrimePagerActivity extends AppCompatActivity {
         }
     }
 
-    public static Intent newIntent(Context context, UUID crime_id) {
-        Intent intent = new Intent(context, CrimePagerActivity.class);
-        intent.putExtra(EXTRA_CRIME_ID, crime_id);
-        return intent;
-    }
 }
