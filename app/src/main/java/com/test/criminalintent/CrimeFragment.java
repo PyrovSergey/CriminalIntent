@@ -43,11 +43,11 @@ public class CrimeFragment extends Fragment {
     }
 
     @Override
-    public void onPause() {
+    public void onResume() {
         int index = CrimeLab.get(getContext()).getCrimes().indexOf(mCrime);
         CrimeLab.setChangePosition(index); // тут мы получаем индекс объекта в списке
         Log.d("TEST", "onStop() - " + String.valueOf(index));
-        super.onPause();
+        super.onResume();
     }
 
     @Nullable
