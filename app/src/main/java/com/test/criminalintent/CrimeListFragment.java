@@ -90,7 +90,7 @@ public class CrimeListFragment extends Fragment {
             if (v.getId() == R.id.call_police_button) {
                 Toast.makeText(getActivity(), mCrime.getTitle() + " call police!", Toast.LENGTH_SHORT).show();
             } else {
-                Intent intent = CrimeActivity.newIntent(getActivity(), mCrime.getId());
+                Intent intent = CrimePagerActivity.newIntent(getActivity(), mCrime.getId());
                 startActivity(intent);
             }
         }
