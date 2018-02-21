@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,9 +43,11 @@ public class CrimeFragment extends Fragment {
     }
 
     @Override
-    public void onStop() {
-        CrimeLab.setChangePosition(CrimeLab.get(getContext()).getCrimes().indexOf(mCrime)); // тут мы получаем индекс объекта в списке
-        super.onStop();
+    public void onPause() {
+        int index = CrimeLab.get(getContext()).getCrimes().indexOf(mCrime);
+        CrimeLab.setChangePosition(index); // тут мы получаем индекс объекта в списке
+        Log.d("TEST", "onStop() - " + String.valueOf(index));
+        super.onPause();
     }
 
     @Nullable

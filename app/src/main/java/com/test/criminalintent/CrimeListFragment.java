@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,7 @@ public class CrimeListFragment extends Fragment {
             mCrimeRecyclerView.setAdapter(mAdapter);
         } else {
             mAdapter.notifyItemChanged(CrimeLab.getChangePosition());
+            Log.d("TEST", "updateUI() - " + CrimeLab.getChangePosition());
             //mAdapter.notifyDataSetChanged();
             //mAdapter.notifyItemChanged();
         }
