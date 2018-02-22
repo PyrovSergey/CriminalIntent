@@ -10,7 +10,6 @@ import java.util.UUID;
 public class CrimeLab {
     private static CrimeLab sCrimeLab;
     private List<Crime> mCrimes;
-    private static int changePosition;
 
     private CrimeLab(Context context) {
         mCrimes = new ArrayList<>();
@@ -40,14 +39,5 @@ public class CrimeLab {
             }
         }
         return null;
-    }
-
-    public static int getChangePosition() {
-        return changePosition;
-    }
-
-
-    public static void setChangePosition(int position) {
-        changePosition = position;
     }
 }

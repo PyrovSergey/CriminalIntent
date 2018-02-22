@@ -24,13 +24,15 @@ public class CrimeListFragment extends Fragment {
     private static final int VIEW_TYPE_NORMAL = 0;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_crime_list, container, false);
 
         mCrimeRecyclerView = (RecyclerView) view.findViewById(R.id.crime_recycler_view);
         mCrimeRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         updateUI();
+
         return view;
     }
 
@@ -41,9 +43,7 @@ public class CrimeListFragment extends Fragment {
             mAdapter = new CrimeAdapter(crimes);
             mCrimeRecyclerView.setAdapter(mAdapter);
         } else {
-            mAdapter.notifyItemChanged(CrimeLab.getChangePosition());
-            Log.d("TEST", "updateUI() - " + CrimeLab.getChangePosition());
-            //mAdapter.notifyDataSetChanged();
+            mAdapter.notifyDataSetChanged();
             //mAdapter.notifyItemChanged();
         }
     }

@@ -1,6 +1,5 @@
 package com.test.criminalintent;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,7 +13,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.util.UUID;
@@ -30,6 +28,7 @@ public class CrimeFragment extends Fragment {
     public static CrimeFragment newInstance(UUID crimeId) {
         Bundle arguments = new Bundle();
         arguments.putSerializable(ARG_CRIME_ID, crimeId);
+
         CrimeFragment crimeFragment = new CrimeFragment();
         crimeFragment.setArguments(arguments);
         return crimeFragment;
@@ -45,14 +44,13 @@ public class CrimeFragment extends Fragment {
     @Override
     public void onResume() {
         int index = CrimeLab.get(getContext()).getCrimes().indexOf(mCrime);
-        CrimeLab.setChangePosition(index); // тут мы получаем индекс объекта в списке
-        Log.d("TEST", "onStop() - " + String.valueOf(index));
         super.onResume();
     }
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_crime, container, false);
 
         mSolvedCheckBox = (CheckBox) view.findViewById(R.id.crime_solved);
