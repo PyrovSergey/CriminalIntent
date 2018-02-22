@@ -7,4 +7,5 @@
     <string name="crime_solved_label">Решено</string>
     <string name="crime_title">Заголовок преступления</string>
     <string name="crime_data">Данные о преступлениях</string>
+    <string name="date_picker_title">Дата преступления:</string>
 </resources>

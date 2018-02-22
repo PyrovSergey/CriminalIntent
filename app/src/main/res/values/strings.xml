@@ -6,4 +6,5 @@
     <string name="crime_solved_label" translatable="false">Solved</string>
     <string name="crime_title">Crime Title</string>
     <string name="crime_data">Crime Data</string>
+    <string name="date_picker_title">Date of crime:</string>
 </resources>

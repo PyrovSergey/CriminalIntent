@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import java.util.List;
@@ -49,8 +50,14 @@ public class CrimePagerActivity extends AppCompatActivity {
             public Fragment getItem(int position) {
                 Crime crime = mCrimes.get(position);
                 Log.d("TEST", "Получен фрагмент с позицией - " + position);
-                setClickableButtons(mViewPager.getCurrentItem());
+
                 return CrimeFragment.newInstance(crime.getId());
+            }
+
+            @Override
+            public void startUpdate(ViewGroup container) {
+                setClickableButtons(mViewPager.getCurrentItem());
+                super.startUpdate(container);
             }
 
             @Override
@@ -62,7 +69,6 @@ public class CrimePagerActivity extends AppCompatActivity {
         for (int i = 0; i < mCrimes.size(); i++) {
             if (mCrimes.get(i).getId().equals(crimeId)) {
                 Log.d("TEST", "Получен выбранный фрагмент - " + i);
-
                 mViewPager.setCurrentItem(i);
                 break;
             }
@@ -71,20 +77,14 @@ public class CrimePagerActivity extends AppCompatActivity {
 
     public void setClickableButtons(int position) {
         if (position == 0) {
-            imageButtonFirstCrime.setClickable(false);
-            imageButtonFirstCrime.setEnabled(false);
-            imageButtonLastCrime.setClickable(true);
-            imageButtonLastCrime.setEnabled(true);
+            imageButtonFirstCrime.setVisibility(View.GONE);
+            imageButtonLastCrime.setVisibility(View.VISIBLE);
         } else if (position == mCrimes.size() - 1) {
-            imageButtonLastCrime.setClickable(false);
-            imageButtonLastCrime.setEnabled(false);
-            imageButtonFirstCrime.setClickable(true);
-            imageButtonFirstCrime.setEnabled(true);
+            imageButtonFirstCrime.setVisibility(View.VISIBLE);
+            imageButtonLastCrime.setVisibility(View.GONE);
         } else {
-            imageButtonFirstCrime.setClickable(true);
-            imageButtonFirstCrime.setEnabled(true);
-            imageButtonLastCrime.setClickable(true);
-            imageButtonLastCrime.setEnabled(true);
+            imageButtonFirstCrime.setVisibility(View.VISIBLE);
+            imageButtonLastCrime.setVisibility(View.VISIBLE);
         }
     }
 
