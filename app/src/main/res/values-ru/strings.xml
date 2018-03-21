@@ -8,4 +8,9 @@
     <string name="crime_title">Заголовок преступления</string>
     <string name="crime_data">Данные о преступлениях</string>
     <string name="date_picker_title">Дата преступления:</string>
+
+    <string name="new_crime">Новое преступление</string>
+    <string name="show_subtitle">Показать субтитры</string>
+    <string name="hide_subtitle">Спрятать субтитры</string>
+    <string name="subtitle_format">%1$d преступления</string>
 </resources>

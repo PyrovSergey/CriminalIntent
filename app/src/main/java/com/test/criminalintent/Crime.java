@@ -4,6 +4,7 @@ package com.test.criminalintent;
 import java.util.Date;
 import java.util.UUID;
 
+// класс модели Crime
 public class Crime {
     private UUID mId;
     private String mTitle;
