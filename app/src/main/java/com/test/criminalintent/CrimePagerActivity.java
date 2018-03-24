@@ -49,8 +49,6 @@ public class CrimePagerActivity extends AppCompatActivity {
             @Override
             public Fragment getItem(int position) {
                 Crime crime = mCrimes.get(position);
-                Log.d("TEST", "Получен фрагмент с позицией - " + position);
-
                 return CrimeFragment.newInstance(crime.getId());
             }
 
@@ -68,7 +66,6 @@ public class CrimePagerActivity extends AppCompatActivity {
 
         for (int i = 0; i < mCrimes.size(); i++) {
             if (mCrimes.get(i).getId().equals(crimeId)) {
-                Log.d("TEST", "Получен выбранный фрагмент - " + i);
                 mViewPager.setCurrentItem(i);
                 break;
             }

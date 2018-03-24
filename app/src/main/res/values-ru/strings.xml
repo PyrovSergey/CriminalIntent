@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Преступное намерение</string>
     <string name="crime_title_hint">Введите название преступления.</string>
     <string name="crime_title_label">Заглавие</string>
@@ -12,5 +12,12 @@
     <string name="new_crime">Новое преступление</string>
     <string name="show_subtitle">Показать субтитры</string>
     <string name="hide_subtitle">Спрятать субтитры</string>
-    <string name="subtitle_format">%1$d преступления</string>
+    <string name="delete">Удалить</string>
+
+    <plurals name="subtitle_plural" tools:ignore="MissingQuantity">
+        <item quantity="zero">%1$d преступлений</item>
+        <item quantity="one">%1$d преступление</item>
+        <item quantity="few">%1$d преступления</item>
+        <item quantity="other">%1$d преступлений</item>
+    </plurals>
 </resources>

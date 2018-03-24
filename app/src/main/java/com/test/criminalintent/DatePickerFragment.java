@@ -16,22 +16,25 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+// создаем класс фрагмент выбора даты
 public class DatePickerFragment extends DialogFragment {
 
     private static final String ARG_DATE = "date";
     public static final String EXTRA_DATE = "criminalintent.date";
 
+    // переменная для хранения ссылки (стандартно)
     private DatePicker datePicker;
 
+    // метод для создания объекта DatePickerFragment, принимающий дату
     public static DatePickerFragment newInstance(Date date) {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(ARG_DATE, date);
-
+        Bundle bundle = new Bundle();            // созадем пакет
+        bundle.putSerializable(ARG_DATE, date);  // кладем в него переданную дату по ключу ARG_DATE
+        // создаем объект класса и присваиваем ему пакет с переданной датой
         DatePickerFragment datePickerFragment = new DatePickerFragment();
         datePickerFragment.setArguments(bundle);
-        return datePickerFragment;
+        return datePickerFragment; // возвращаем объект
     }
-
+    // метод для отправки результата целевому фрагменту (CrimeFragment)
     private void sendResult(int resultCode, Date date) {
         if (getTargetFragment() == null) {
             return;
