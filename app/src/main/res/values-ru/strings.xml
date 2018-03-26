@@ -20,4 +20,7 @@
         <item quantity="few">%1$d преступления</item>
         <item quantity="other">%1$d преступлений</item>
     </plurals>
+
+    <string name="crime_suspect_text">Выбрать подозреваемого</string>
+    <string name="crime_report_text">Отправить отчет о преступлении</string>
 </resources>
