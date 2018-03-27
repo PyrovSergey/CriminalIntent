@@ -12,14 +12,6 @@ public class Crime {
     private boolean mSolved;
     private String mSuspect;
 
-    public String getSuspect() {
-        return mSuspect;
-    }
-
-    public void setSuspect(String suspect) {
-        mSuspect = suspect;
-    }
-
     private boolean mRequiresPolice;
 
     public Crime() {
@@ -65,5 +57,12 @@ public class Crime {
 
     public void setmRequiresPolice(boolean mRequiresPolice) {
         this.mRequiresPolice = mRequiresPolice;
+    }
+    public String getSuspect() {
+        return mSuspect;
+    }
+
+    public void setSuspect(String suspect) {
+        mSuspect = suspect;
     }
 }
