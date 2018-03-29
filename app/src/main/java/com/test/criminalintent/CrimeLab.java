@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.test.criminalintent.CrimeDbSchema.CrimeTable;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -22,6 +23,11 @@ public class CrimeLab {
         mContext = context.getApplicationContext();
         mDatabase = new CrimeBaseHelper(mContext).getWritableDatabase();
 
+    }
+
+    public File getPhotoFile(Crime crime){
+        File fileDir = mContext.getFilesDir();
+        return new File(fileDir, crime.getPhotoFileName());
     }
 
     public static CrimeLab get(Context context) {
